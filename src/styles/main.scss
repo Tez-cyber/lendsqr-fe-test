@@ -1,7 +1,92 @@
 @import "config";
 
-.App {
-    h1 {
-        color: blue;
+// ======================= login page
+.login {
+    display: flex;
+    justify-content: center;
+    // height: 700px;
+
+    // ======== First section 
+    &_firstSection {
+        background: lighten(#545F7D26, 55%);
+        height: 100%;
+        width: 50%;
+        padding: 0;
+
+        &_content {
+            padding: 64px 48px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+
+            .login_img img {
+                margin-top: 64px;
+            }
+        }
+    }
+
+    // ========= Form section
+    &_formSection {
+        padding: 64px;
+        width: 50%;
+
+        &_title {
+            h2 {
+                color: $primaryColor;
+                font-size: 40px;
+            }
+
+            p {
+                color: #545f7d;
+                font-size: 20px;
+                padding-top: 10px;
+            }
+        }
+
+        &_form {
+            margin-top: 64px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            input {
+                width: 447px;
+                padding: 13px;
+                margin-top: 20px;
+                outline: 0;
+                border: 2px solid #e4e6eb;
+                border-radius: 6px;
+                transition: all .5s ease-in;
+
+                &:focus {
+                    border-color: $primaryColor;
+                }
+            }
+
+            &:nth-child(2) {
+                span {
+                    text-transform: uppercase;
+                    color: $secondaryColor;
+                    font-size: 12px;
+                    letter-spacing: 2px;
+                    font-weight: 600;
+                }
+            }
+
+
+            button {
+                width: 100%;
+                border: none;
+                height: 48px;
+                border-radius: 8px;
+                background: $secondaryColor;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 14px;
+                color: #fff;
+            }
+
+        }
     }
 }
