@@ -8,9 +8,10 @@
 
     // ======== First section 
     &_firstSection {
-        background: lighten(#545F7D26, 55%);
+        background: lighten(#545F7D26, 50%);
         height: 100%;
-        width: 50%;
+        overflow-x: hidden;
+        // width: 50%;
         padding: 0;
 
         &_content {
