@@ -1,8 +1,9 @@
 
 
-export const LoginPage = () => {
+
+export const LoginPage = ({ type }: { type: string }) => {
     return (
-        <main className="login">
+        <main id={type} className="login">
             {/* =========== Left section with image */}
             <section className="login_firstSection">
                 <div className="login_firstSection_content">
