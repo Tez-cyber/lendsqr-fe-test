@@ -1,14 +1,20 @@
+import { Route, Routes } from 'react-router-dom'
+import { useEffect } from 'react'
+import { LoginPage } from './pages/loginPage'
+
 import './css/main.css'
 
+
 function App() {
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [])
 
   return (
     <>
-      <div className="App">
-        <h1>
-          New App
-        </h1>
-      </div>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+      </Routes>
     </>
   )
 }
