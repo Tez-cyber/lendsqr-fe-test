@@ -1,7 +1,9 @@
-
+import { useLocation } from "react-router-dom"
 
 export const Navbar = () => {
-  return (
-    <div>navbar</div>
+    const location = useLocation()
+    const isLoginPage = location.pathname === "/"
+  return isLoginPage ? null : (
+    <div className="">navbar</div>
   )
 }

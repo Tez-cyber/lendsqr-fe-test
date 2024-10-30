@@ -4,25 +4,21 @@ import { LoginPage } from './pages/loginPage'
 
 import './css/main.css'
 import { Navbar } from './components/navbar'
+import { DashboardPage } from './pages/dashboardPage'
 
 // ==== Check if file is an auth file
-type authType = {
-  type: string
-}
-function App(
-  { type }: authType
-) {
+
+function App() {
   useEffect(() => {
     window.scroll(0, 0)
   }, [])
 
   return (
     <>
-      {
-        type === "auth" ? <Navbar /> : ""
-      }
+      <Navbar />
       <Routes>
-        <Route path="/" element={<LoginPage type="auth" />} />
+        <Route path="/" element={<LoginPage type='auth' />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </>
   )
