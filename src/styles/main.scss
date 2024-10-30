@@ -3,8 +3,8 @@
 // ======================= login page
 .login {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    // height: 700px;
 
     // ======== First section 
     &_firstSection {
@@ -20,8 +20,11 @@
             flex-direction: column;
             gap: 48px;
 
-            .login_img img {
-                margin-top: 64px;
+            .login_img {
+                img {
+                    margin-top: 64px;
+                    width: 26rem;
+                }
             }
         }
     }
@@ -29,7 +32,6 @@
     // ========= Form section
     &_formSection {
         padding: 64px;
-        width: 50%;
 
         &_title {
             h2 {
@@ -51,7 +53,7 @@
             gap: 20px;
 
             input {
-                width: 447px;
+                width: 80%;
                 padding: 13px;
                 margin-top: 20px;
                 outline: 0;
@@ -76,7 +78,7 @@
 
 
             button {
-                width: 100%;
+                width: 90%;
                 border: none;
                 height: 48px;
                 border-radius: 8px;
@@ -90,3 +92,6 @@
         }
     }
 }
+
+// =================== Responsive Design
+@import "responsive"
