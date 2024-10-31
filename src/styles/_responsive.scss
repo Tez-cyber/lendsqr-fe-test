@@ -85,6 +85,19 @@
             display: none;
         }
     }
+
+    // =============== dashboard
+    .dashboard {
+        .mainDashboard {
+            &_overallData {
+                grid-template-columns: repeat(4, 1fr);
+
+                &_card {
+                    padding: 30px 50px 30px 20px;
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (min-width: 992px) {
@@ -101,10 +114,10 @@
     // ====== Dashboard
     .dashboard {
         display: flex;
-        background: #545F7D26;
         height: 100%;
 
         .sidebar {
+            display: block;
             width: 200px;
             background: #fff;
             padding: 30px;

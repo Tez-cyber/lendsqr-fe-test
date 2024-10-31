@@ -143,7 +143,52 @@
 
 // ======================= dashboard
 .dashboard {
-    display: none;
+    background: #545F7D26;
+    height: 100vh;
+
+    .sidebar {
+        display: none;
+    }
+
+    .mainDashboard {
+        padding: 40px;
+        &_title {
+            text-transform: capitalize;
+            color: $primaryColor;
+            font-weight: 500;
+            font-size: 24px;
+            padding-bottom: 30px;
+        }
+
+        &_overallData {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            &_card {
+                display: flex;
+                justify-content: center;
+                gap: 6px;
+                flex-direction: column;
+                background: #fff;
+                // width: 150px;
+                // height: 160px;
+                padding: 30px 20px;
+                border-radius: 3px;
+
+                &_title {
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                }
+
+                &_data {
+                    font-weight: 600;
+                    color: $primaryColor;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
 }
 
 
