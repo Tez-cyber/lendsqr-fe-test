@@ -94,5 +94,65 @@
     }
 }
 
+// ======================= Navbar
+.nav {
+    @extend .flex-config;
+    justify-content: space-between;
+    padding: 10px 30px;
+
+    .firstSection {
+        @extend .flex-config;
+        justify-content: center;
+        gap: 9rem;
+        height: 40px;
+
+        .searchSection {
+            @extend .flex-config;
+
+
+            input {
+                border: 1px solid #e4e7f0;
+                padding: 10px 25px;
+                width: 344px;
+                outline: 0;
+                border-top-left-radius: 8px;
+                border-bottom-left-radius: 8px;
+            }
+
+            .searchiconWrapper {
+                background-color: $secondaryColor;
+                padding: 8px 15px;
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+            }
+        }
+    }
+
+    .secondSection {
+        @extend .flex-config;
+        // padding: 0 4rem;
+        gap: 30px;
+
+        Link {
+            color: $secondaryColor;
+        }
+
+        .profile {
+            @extend .flex-config;
+            gap: 20px;
+
+            &-img img {
+                border-radius: 100%;
+            }
+        }
+
+    }
+}
+
+// ======================= dashboard
+.dashboard {
+    background: #545F7D26;
+}
+
 // =================== Responsive Design
 @import "responsive"
