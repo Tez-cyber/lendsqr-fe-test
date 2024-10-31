@@ -15,6 +15,17 @@ export const Navbar = () => {
                         <img src="/icons/search.png" alt="" />
                     </div>
                 </section>
+
+                {/* ================= Nav for Mobile screen */}
+                <div className="navMobile">
+                    <div className="navMobileContain">
+                        <div>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <section className="secondSection">
                 <Link to="/">Docs</Link>
