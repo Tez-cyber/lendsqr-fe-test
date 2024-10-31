@@ -1,5 +1,7 @@
 $primaryColor: #203f7d;
+$primaryText: #798cb0;
 $secondaryColor: #39cccc;
+
 
 *{
     margin: 0;
@@ -9,4 +11,8 @@ $secondaryColor: #39cccc;
 .flex {
     display: flex;
     align-items: center;
+}
+
+a {
+    text-decoration: none;
 }

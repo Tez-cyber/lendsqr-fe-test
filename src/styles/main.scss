@@ -99,6 +99,11 @@
     @extend .flex;
     justify-content: space-between;
     padding: 10px 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    z-index: 10; 
+    position: sticky;
+    top: 0;
+    background: #fff;
 
 
     .firstSection {
@@ -138,8 +143,9 @@
 
 // ======================= dashboard
 .dashboard {
-    background: #545F7D26;
+    display: none;
 }
+
 
 // =================== Responsive Design
 @import "responsive"

@@ -7,6 +7,9 @@ export const DashboardPage = () => {
       {/* ================= Sidebar */}
       <Sidebar />
       {/* ================= Main content */}
+      <main className="mainDashboard">
+        mainDashboard
+      </main>
     </section>
   )
 }
