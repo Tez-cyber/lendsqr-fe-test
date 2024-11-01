@@ -6,6 +6,7 @@ import './css/main.css'
 import { Navbar } from './components/navbar'
 import { DashboardPage } from './pages/dashboardPage'
 import { Sidebar } from './components/sidebar'
+import { UserDetailsPage } from './pages/userDetailsPage'
 
 // ==== Check if file is an auth file
 
@@ -20,8 +21,9 @@ function App() {
       <div className="mainApp">
         <Sidebar />
         <Routes>
-          <Route path="/" element={<LoginPage type='auth' />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/user-details" element={<UserDetailsPage />} />
         </Routes>
       </div>
     </>

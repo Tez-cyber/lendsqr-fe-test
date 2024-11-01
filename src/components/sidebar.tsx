@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { businesses, customers, settings } from "../utils/sidebarData"
 
 export const Sidebar = () => {
-    return (
+    const location = useLocation()
+    const isLoginPage = location.pathname === "/"
+    return isLoginPage ? null : (
         <section className="sidebar">
             <div className="org_dropdown">
                 <img src="/icons/org.png" alt="" />
