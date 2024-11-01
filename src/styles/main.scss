@@ -1,5 +1,12 @@
 @import "config";
 
+
+.mainApp {
+    .sidebar {
+        display: none;
+    }
+}
+
 // ======================= login page
 .login {
     display: flex;
@@ -100,7 +107,7 @@
     justify-content: space-between;
     padding: 10px 30px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    z-index: 10; 
+    z-index: 10;
     position: sticky;
     top: 0;
     background: #fff;
@@ -143,15 +150,10 @@
 
 // ======================= dashboard
 .dashboard {
-    background: #545F7D26;
-    height: 100%;
-
-    .sidebar {
-        display: none;
-    }
 
     .mainDashboard {
         padding: 40px;
+
         &_title {
             text-transform: capitalize;
             color: $primaryColor;
@@ -162,17 +164,16 @@
 
         &_overallData {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             padding-bottom: 40px;
+            grid-template-columns: repeat(2, 1fr);
+
             &_card {
                 display: flex;
                 justify-content: center;
                 gap: 6px;
                 flex-direction: column;
                 background: #fff;
-                // width: 150px;
-                // height: 160px;
                 padding: 30px 20px;
                 border-radius: 3px;
 
@@ -190,16 +191,20 @@
             }
         }
 
-        .dashTable {
-            padding: 20px;
-            .tableHead {
-                color: $tableColor;
-                font-weight: 600;
-                text-transform: uppercase;
-            }
+        &_tableContain {
+            width: 100%;
+            .dashTable {
+                padding: 20px;
 
-            .tableContent {
-                color: $tableColor;
+                .tableHead {
+                    color: $tableColor;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+
+                .tableContent {
+                    color: $tableColor;
+                }
             }
         }
     }

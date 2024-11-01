@@ -6,7 +6,6 @@ export const DashboardPage = () => {
   return (
     <section className="dashboard">
       {/* ================= Sidebar */}
-      <Sidebar />
       {/* ================= Main content */}
       <main className="mainDashboard">
         <div>
@@ -42,7 +41,9 @@ export const DashboardPage = () => {
             </div>
           </div>
         </div>
-        <MaindashboardContent />
+        <div className="mainDashboard_tableContain">
+          <MaindashboardContent />
+        </div>
       </main>
       {/* ========== */}
     </section>
