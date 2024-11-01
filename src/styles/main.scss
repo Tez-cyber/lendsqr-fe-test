@@ -144,7 +144,7 @@
 // ======================= dashboard
 .dashboard {
     background: #545F7D26;
-    height: 100vh;
+    height: 100%;
 
     .sidebar {
         display: none;
@@ -164,6 +164,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+            padding-bottom: 40px;
             &_card {
                 display: flex;
                 justify-content: center;
@@ -188,8 +189,24 @@
                 }
             }
         }
+
+        .dashTable {
+            padding: 20px;
+            .tableHead {
+                color: $tableColor;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+
+            .tableContent {
+                color: $tableColor;
+            }
+        }
     }
 }
+
+
+
 
 
 // =================== Responsive Design
