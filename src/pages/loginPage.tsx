@@ -1,7 +1,12 @@
+import { useNavigate } from "react-router-dom"
 
 
 
 export const LoginPage = () => {
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate('/dashboard')
+    }
     return (
         <main className="login">
             {/* =========== Left section with image */}
@@ -30,7 +35,7 @@ export const LoginPage = () => {
                         <span>forgot password?</span>
                     </div>
                     <div className="">
-                        <button type='submit'>
+                        <button type='submit' onClick={handleClick}>
                             log in
                         </button>
                     </div>
