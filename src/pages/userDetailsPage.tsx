@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { GeneralDetails } from "../components/general_details/generalDetails"
 
 export const UserDetailsPage = () => {
     return (
@@ -37,7 +38,7 @@ export const UserDetailsPage = () => {
                         </div>
                         <span className="profile_bar"></span>
                         <div className="bank_wrapper">
-                            <p className="bank_wrapper_amt">#200,000.00</p>
+                            <p className="bank_wrapper_amt">&#x20A6;                200,000.00</p>
                             <p className="bank_wrapper_details">
                                 9912345678/Providus Bank
                             </p>
@@ -54,6 +55,9 @@ export const UserDetailsPage = () => {
                         <li>App and System</li>
                     </ul>
                 </div>
+            </div>
+            <div className="userDetails_profileDetails">
+                <GeneralDetails />
             </div>
         </div>
     )

@@ -131,6 +131,19 @@
             }
         }
 
+        &_profileDetails {
+            .generalDetails {
+                &_head {
+                    color: $primaryColor;
+                    font-weight: 500;
+                }
+    
+                &_details {
+                    grid-template-columns: repeat(6, 1fr);
+                }
+            }
+        }
+
     }
 }
 

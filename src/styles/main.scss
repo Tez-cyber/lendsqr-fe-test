@@ -272,6 +272,7 @@
 
         &_topSection {
             padding-bottom: 20px;
+
             .profile_bar {
                 display: block;
                 width: 2px;
@@ -279,12 +280,13 @@
                 background: #d3d3d3;
                 margin: 0 20px;
             }
+
             .profile_wrapper {
                 display: flex;
                 align-items: center;
 
                 img {
-                    background: gray;
+                    background: rgb(212, 211, 211);
                     border-radius: 100%;
                     padding: 20px;
                 }
@@ -311,11 +313,13 @@
 
                 &_tier {
                     margin-top: 15px;
+
                     p {
                         font-size: 14px;
                         color: $tableColor;
                     }
                 }
+
                 .bank_wrapper {
                     // margin-left: 50px;
                     margin-top: 10px;
@@ -349,7 +353,7 @@
                 .active {
                     color: $secondaryColor;
                 }
-                
+
                 .active::after {
                     content: "";
                     margin-top: 10px;
@@ -358,6 +362,50 @@
                     height: 2px;
                     background: $secondaryColor;
                 }
+            }
+        }
+    }
+
+    &_profileDetails {
+        background: #fff;
+        margin-top: 20px;
+        border-radius: 8px;
+        padding: 30px 40px;
+
+        .generalDetails {
+            &_head {
+                color: $primaryColor;
+                font-weight: 500;
+            }
+
+            &_details {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+
+                &_info {
+                    margin-top: 20px;
+                    color: $tableColor;
+
+                    &_minihead {
+                        text-transform: uppercase;
+                        font-size: 12px;
+                    }
+
+                    &_minidetails {
+                        padding-top: 5px;
+                        font-weight: 500;
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            &_seperator {
+                display: block;
+                margin: 20px 0;
+                background: #d6d4d4;
+                border-radius: 10px;
+                width: 100%;
+                height: 2px;
             }
         }
     }
