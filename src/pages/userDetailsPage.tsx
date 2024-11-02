@@ -45,7 +45,14 @@ export const UserDetailsPage = () => {
                     </div>
                 </div>
                 <div className="userDetails_profileHead_topBottom">
-
+                    <ul>
+                        <li className="active">General Details</li>
+                        <li>Documents</li>
+                        <li>Bank details</li>
+                        <li>Loans</li>
+                        <li>Savings</li>
+                        <li>App and System</li>
+                    </ul>
                 </div>
             </div>
         </div>

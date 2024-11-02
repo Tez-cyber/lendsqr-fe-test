@@ -116,12 +116,17 @@
         &_profileHead {
             &_topSection {
                 display: flex;
-                // align-items: center;
 
                 .tier_wrapper {
+                    margin-top: 0px;
                     .bank_wrapper {
                         margin-left: 0px;
                     }
+                }
+            }
+            &_topBottom {
+                ul {
+                    grid-template-columns: repeat(6, 1fr);
                 }
             }
         }
