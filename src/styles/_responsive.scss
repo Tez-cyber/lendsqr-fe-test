@@ -99,6 +99,34 @@
             }
         }
     }
+
+    // =============== user details
+    .userDetails {
+        width: 100%;
+
+        &_heading {
+            display: flex;
+            justify-content: space-between;
+            
+            &_btn {
+                margin-top: 0px;
+            }
+        }
+
+        &_profileHead {
+            &_topSection {
+                display: flex;
+                // align-items: center;
+
+                .tier_wrapper {
+                    .bank_wrapper {
+                        margin-left: 0px;
+                    }
+                }
+            }
+        }
+
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -117,12 +145,12 @@
         height: 100%;
     }
 
-
     .mainApp {
         display: flex;
+
         .sidebar {
             display: block;
-            // width: 283px;
+            width: 283px;
             background: #fff;
             padding: 30px;
             z-index: 5;
@@ -173,4 +201,7 @@
             }
         }
     }
+
+
+    // =============== user details
 }

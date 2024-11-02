@@ -197,6 +197,7 @@
 
         &_tableContain {
             width: 100%;
+
             .dashTable {
                 padding: 20px;
 
@@ -214,9 +215,124 @@
     }
 }
 
+// =============== user details
+.userDetails {
+    margin: 40px;
 
+    &_backLink {
+        display: flex;
+        align-items: center;
+        gap: 10px;
 
+        a {
+            color: $tableColor;
+        }
+    }
 
+    &_heading {
+        margin-top: 20px;
+
+        p {
+            text-transform: capitalize;
+            font-size: 24px;
+            color: $primaryColor;
+        }
+
+        &_btn {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+
+            .btn {
+                padding: 10px 20px;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: 600;
+                border-radius: 8px;
+                background: transparent;
+            }
+
+            .btn_blacklist {
+                border: 1.5px solid #ff0000;
+                color: #ff0000;
+            }
+
+            .btn_activate {
+                border: 1.5px solid $secondaryColor;
+                color: $secondaryColor;
+            }
+        }
+    }
+
+    &_profileHead {
+        background: #fff;
+        margin-top: 20px;
+        border-radius: 8px;
+        padding: 30px 40px 10px 40px;
+
+        &_topSection {
+            .profile_bar {
+                display: block;
+                width: 2px;
+                height: 100;
+                background: #d3d3d3;
+                margin: 0 20px;
+            }
+            .profile_wrapper {
+                display: flex;
+                align-items: center;
+
+                img {
+                    background: gray;
+                    border-radius: 100%;
+                    padding: 20px;
+                }
+
+                div {
+                    margin-left: 20px;
+                }
+
+                &_name {
+                    color: $primaryColor;
+                    font-size: 22px;
+                    font-weight: 500;
+                }
+
+                &_id {
+                    font-size: 14px;
+                    color: $tableColor;
+                }
+            }
+
+            .tier_wrapper {
+                display: flex;
+
+                &_tier {
+                    margin-top: 15px;
+                    p {
+                        font-size: 14px;
+                        color: $tableColor;
+                    }
+                }
+                .bank_wrapper {
+                    // margin-left: 50px;
+                    margin-top: 10px;
+
+                    &_amt {
+                        color: $primaryColor;
+                        font-size: 22px;
+                        font-weight: 500;
+                    }
+
+                    &_details {
+                        font-size: 14px;
+                        color: $tableColor;
+                    }
+                }
+            }
+        }
+    }
+}
 
 // =================== Responsive Design
 @import "responsive"
