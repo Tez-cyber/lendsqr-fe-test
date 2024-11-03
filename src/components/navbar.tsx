@@ -1,6 +1,13 @@
+import { useState } from "react"
 import { useLocation, Link } from "react-router-dom"
 
 export const Navbar = () => {
+    const [openNav, setOpenNav] = useState(false)
+
+    const handleNavToggle = () => {
+        setOpenNav(prev => !prev)
+        console.log(openNav)
+    }
     const location = useLocation()
     const isLoginPage = location.pathname === "/"
     return isLoginPage ? null : (
@@ -19,12 +26,19 @@ export const Navbar = () => {
                 {/* ================= Nav for Mobile screen */}
                 <div className="navMobile">
                     <div className="navMobileContain">
-                        <div>
+                        <button onClick={handleNavToggle}>
                             <span></span>
                             <span></span>
                             <span></span>
-                        </div>
+                        </button>
                     </div>
+
+                    {
+                        openNav &&
+                        <div className="navMobile_items">
+                            <h1>Hello</h1>
+                        </div>
+                    }
                 </div>
             </div>
             <section className="secondSection">
