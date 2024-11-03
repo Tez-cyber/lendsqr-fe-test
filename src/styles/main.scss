@@ -206,9 +206,11 @@
         padding: 10px;
 
         .navMobile {
+
             .navMobileContain {
                 button {
                     position: absolute;
+                    top: 40%;
                     border: none;
                     display: flex;
                     flex-direction: column;
@@ -225,19 +227,62 @@
                 }
             }
 
+            .searchSectionMobile {
+                @extend .flex;
+                justify-content: center;
+                padding: 30px;
+
+                input {
+                    display: block;
+                    border: 1px solid #e4e7f0;
+                    padding: 10px 25px;
+                    // width: 100%;
+                    outline: 0;
+                    border-top-left-radius: 8px;
+                    border-bottom-left-radius: 8px;
+                }
+
+                .searchiconWrapper {
+                    background-color: $secondaryColor;
+                    padding: 8px 15px;
+                    border-top-right-radius: 8px;
+                    border-bottom-right-radius: 8px;
+                }
+            }
+
             .navMobile_items {
                 position: absolute;
                 top: 0;
-                left: 0;
+                right: 0;
                 background: #fff;
-                width: 100%;
+                width: 70%;
                 height: 100vh;
+                padding-top: 50px;
+
+                &_profile {
+                    @extend .flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 30px;
+
+                    .profile {
+                        img {
+                            border-radius: 100%;
+                        }
+
+                        p{
+                            color: $primaryColor;
+                            font-weight: bold;
+                        }
+                    }
+                }
             }
         }
 
         .searchSection {
             display: none;
         }
+
     }
 
     .secondSection {

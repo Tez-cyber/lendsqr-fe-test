@@ -40,6 +40,10 @@
             height: 40px;
             width: auto;
 
+            .navMobile {
+                display: none;
+            }
+
             .searchSection {
                 @extend .flex-config;
 

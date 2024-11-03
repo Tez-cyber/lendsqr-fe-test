@@ -36,7 +36,26 @@ export const Navbar = () => {
                     {
                         openNav &&
                         <div className="navMobile_items">
-                            <h1>Hello</h1>
+                            <section className="searchSectionMobile">
+                                <input type="search" placeholder="Search for anything" />
+                                <div className="searchiconWrapper">
+                                    <img src="/icons/search.png" alt="" />
+                                </div>
+                            </section>
+
+                            <section className="navMobile_items_profile">
+                                <Link to="/">Docs</Link>
+                                <img src="/icons/notification.png" alt="" />
+                                <div className="profile">   
+                                    <div className="profile-img">
+                                        <img src="/profile.png" alt="profile.img" />
+                                    </div>
+                                    <p>Adeyemi</p>
+                                    {/* <div>
+                                        <img src="/icons/dropdown.png" alt="dropdown" />
+                                    </div> */}
+                                </div>
+                            </section>
                         </div>
                     }
                 </div>
