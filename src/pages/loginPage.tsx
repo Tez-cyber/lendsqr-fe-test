@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom"
 
 export const LoginPage = () => {
     const navigate = useNavigate()
-    const handleClick = () => {
-        navigate('/dashboard')
-    }
+    // const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    //     event.preventDefault()
+    //     navigate('/dashboard')
+    // }
     return (
         <main className="login">
             {/* =========== Left section with image */}
@@ -26,7 +27,10 @@ export const LoginPage = () => {
                     <h2>Welcome!</h2>
                     <p>Enter details to login</p>
                 </div>
-                <form action="" className="login_formSection_form">
+                <form onSubmit={(e: React.SyntheticEvent) => {
+                    e.preventDefault();
+                    navigate('/dashboard')
+                }} action="" className="login_formSection_form">
                     <div>
                         <input type="text" placeholder="Email" />
                         <input type="text" placeholder="Password" />
@@ -35,7 +39,7 @@ export const LoginPage = () => {
                         <span>forgot password?</span>
                     </div>
                     <div className="">
-                        <button type='submit' onClick={handleClick}>
+                        <button type='submit'>
                             log in
                         </button>
                     </div>
