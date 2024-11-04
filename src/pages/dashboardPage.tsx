@@ -1,11 +1,13 @@
 import { MaindashboardContent } from "../components/maindashboardContent"
-import { Sidebar } from "../components/sidebar"
+
+
+
 
 
 export const DashboardPage = () => {
+  
   return (
     <section className="dashboard">
-      {/* ================= Sidebar */}
       {/* ================= Main content */}
       <main className="mainDashboard">
         <div>

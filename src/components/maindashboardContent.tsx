@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import fetchUsers, { User } from '../utils/users';
 
 interface Column {
   id: 'organization' | 'username' | 'email' | 'phone' | 'date' | 'status';
@@ -61,27 +62,47 @@ function createData(
   return { organization, username, email, phone, date, status };
 }
 
-const rows = [
-  createData('Lendsqr', 'Adedeji', "adedeji@lendsqr.com", "08078903721", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Irorun', 'Debby Ogana', "debby2@irorun.com", "08160780928", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Lendstar', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Lendsqr', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Lendstar', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Lendsqr', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Lendstar', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Irorun', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Lendsqr', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Irorun', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Lendsqr', 'Debby Ogana', "debby2@irorun.com", "08160780928", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Lendstar', 'Adedeji', "adedeji@lendsqr.com", "08078903721", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Irorun', 'Debby Ogana', "debby2@irorun.com", "08160780928", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Lendsqr', 'Tosin Dokunmu',"tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
-  createData('Lendstar', 'Grace Effiom',"grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
-];
+// const rows = [
+//   createData('Lendsqr', 'Adedeji', "adedeji@lendsqr.com", "08078903721", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Irorun', 'Debby Ogana', "debby2@irorun.com", "08160780928", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Lendstar', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Lendsqr', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Lendstar', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Lendsqr', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Lendstar', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Irorun', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Lendsqr', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Irorun', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Lendsqr', 'Debby Ogana', "debby2@irorun.com", "08160780928", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Lendstar', 'Adedeji', "adedeji@lendsqr.com", "08078903721", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Irorun', 'Debby Ogana', "debby2@irorun.com", "08160780928", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Lendsqr', 'Tosin Dokunmu',"tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
+//   createData('Lendstar', 'Grace Effiom',"grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
+// ];
 
+// interface userProps {
+//   users: User
+// }
 export function MaindashboardContent() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const [users, setUsers] = React.useState<User[]>([])
+
+  React.useEffect(() => {
+    fetchUsers().then((data) => {
+      setUsers(data)
+      console.log(users)
+    })
+  }, [])
+  // =========================
+
+  console.log(users)
+  
+  const rows = [
+    createData('Lendsqr', 'Adedeji', "adedeji@lendsqr.com", "08078903721", "May 15, 2020 10:00 AM" , "Inactive")
+  ]
+  
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
@@ -115,11 +136,11 @@ export function MaindashboardContent() {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.username}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.username +  Math.floor(100 + Math.random() * 9860).toString()}>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align} className='tableContent'>
+                        <TableCell key={column.id +  Math.floor(100 + Math.random() * 90).toString()} align={column.align} className='tableContent'>
                           {column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}
