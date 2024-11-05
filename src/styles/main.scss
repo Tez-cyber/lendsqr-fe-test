@@ -539,6 +539,12 @@
                 }
             }
 
+            &_education {
+                .generalDetails_details {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
             &_seperator {
                 display: block;
                 margin: 20px 0;
