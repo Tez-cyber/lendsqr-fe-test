@@ -19,7 +19,7 @@ export interface User {
     guarantorName: string,
     guarantorMobile: string,
     guarantorMail: string,
-    status?: string,
+    status: string,
     organization: string
 }
 

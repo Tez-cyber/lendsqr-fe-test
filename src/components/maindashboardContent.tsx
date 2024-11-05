@@ -41,70 +41,23 @@ const columns: readonly Column[] = [
   }
 ];
 
-interface Data {
-  organization: string;
-  username: string;
-  email: string;
-  phone: string;
-  date: string;
-  status: string;
-}
 
-function createData(
-  organization: string,
-  username: string,
-  email: string,
-  phone: string,
-  date: string,
-  status: string,
-): Data {
-//   const density = email / phone;
-  return { organization, username, email, phone, date, status };
-}
-
-// const rows = [
-//   createData('Lendsqr', 'Adedeji', "adedeji@lendsqr.com", "08078903721", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Irorun', 'Debby Ogana', "debby2@irorun.com", "08160780928", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Lendstar', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Lendsqr', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Lendstar', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Lendsqr', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Lendstar', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Irorun', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Lendsqr', 'Grace Effiom', "grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Irorun', 'Tosin Dokunmu', "tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Lendsqr', 'Debby Ogana', "debby2@irorun.com", "08160780928", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Lendstar', 'Adedeji', "adedeji@lendsqr.com", "08078903721", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Irorun', 'Debby Ogana', "debby2@irorun.com", "08160780928", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Lendsqr', 'Tosin Dokunmu',"tosin@lendsqr.com", "07003309226", "May 15, 2020 10:00 AM" , "Inactive"),
-//   createData('Lendstar', 'Grace Effiom',"grace@lendstar.com", "07060780922", "May 15, 2020 10:00 AM" , "Inactive"),
-// ];
-
-// interface userProps {
-//   users: User
-// }
 export function MaindashboardContent() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
   const [users, setUsers] = React.useState<User[]>([])
 
   React.useEffect(() => {
     fetchUsers().then((data) => {
       setUsers(data)
-      console.log(users)
+      const stringifiedData = JSON.stringify(data);
+      localStorage.setItem('Users', stringifiedData);
+
     })
   }, [])
-  // =========================
 
-  console.log(users)
-  
-  const rows = [
-    createData('Lendsqr', 'Adedeji', "adedeji@lendsqr.com", "08078903721", "May 15, 2020 10:00 AM" , "Inactive")
-  ]
-  
-
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (event:unknown, newPage: number) => {
+    console.log(event)
     setPage(newPage);
   };
 
@@ -132,21 +85,19 @@ export function MaindashboardContent() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {users
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
+              .map((user) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.username +  Math.floor(100 + Math.random() * 9860).toString()}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id +  Math.floor(100 + Math.random() * 90).toString()} align={column.align} className='tableContent'>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
-                        </TableCell>
-                      );
-                    })}
+                  <TableRow key={user.fullname}>
+                    <TableCell className='tableContent'>{user.organization}</TableCell>
+                    <TableCell className='tableContent'>{user.fullname}</TableCell>
+                    <TableCell className='tableContent'>{user.email}</TableCell>
+                    <TableCell className='tableContent'>{user.mobile}</TableCell>
+                    <TableCell className='tableContent'>May 15, 2020 10:00 AM</TableCell>
+                    <TableCell className='tableContent'>{user.status}</TableCell>
+
+                    {/* Add more cells for other properties */}
                   </TableRow>
                 );
               })}
@@ -156,7 +107,7 @@ export function MaindashboardContent() {
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={rows.length}
+        count={users.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

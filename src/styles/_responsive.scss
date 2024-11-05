@@ -169,6 +169,7 @@
 
     .mainApp {
         display: flex;
+        overflow-x: hidden;
 
         .sidebar {
             display: block;

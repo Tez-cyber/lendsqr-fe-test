@@ -346,7 +346,9 @@
                 }
 
                 .tableContent {
-                    color: $tableColor;
+                    TableCell {
+                        color: $tableColor;
+                    }
                 }
             }
         }
