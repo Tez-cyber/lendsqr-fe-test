@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import FilterListIcon from '@mui/icons-material/FilterList';
 import fetchUsers, { User } from '../utils/users';
 import { useNavigate } from 'react-router-dom';
 
@@ -19,7 +20,7 @@ interface Column {
 }
 
 const columns: readonly Column[] = [
-  { id: 'organization', label: 'Organization', minWidth: 100 },
+  { id: 'organization', label: 'Organization', minWidth: 70 },
   { id: 'username', label: 'Username', minWidth: 100 },
   {
     id: 'email',
@@ -81,7 +82,10 @@ export function MaindashboardContent() {
                   style={{ minWidth: column.minWidth }}
                   className='tableHead'
                 >
-                  {column.label}
+                  <div className="content">
+                    <p>{column.label}</p>
+                    <div><FilterListIcon /></div>
+                  </div>
                 </TableCell>
               ))}
             </TableRow>
@@ -96,12 +100,12 @@ export function MaindashboardContent() {
                       navigate(`/user-details/${user.id}`)
                     }}
                     key={user.fullname}>
-                      <TableCell className='tableContent'>{user.organization}</TableCell>
-                      <TableCell className='tableContent'>{user.fullname}</TableCell>
-                      <TableCell className='tableContent'>{user.email}</TableCell>
-                      <TableCell className='tableContent'>{user.mobile}</TableCell>
-                      <TableCell className='tableContent'>May 15, 2020 10:00 AM</TableCell>
-                      <TableCell className='tableContent'>{user.status}</TableCell>
+                    <TableCell className='tableContent'>{user.organization}</TableCell>
+                    <TableCell className='tableContent'>{user.fullname}</TableCell>
+                    <TableCell className='tableContent'>{user.email}</TableCell>
+                    <TableCell className='tableContent'>{user.mobile}</TableCell>
+                    <TableCell className='tableContent'>May 15, 2020 10:00 AM</TableCell>
+                    <TableCell className='tableContent'>{user.status}</TableCell>
                     {/* Add more cells for other properties */}
                   </TableRow>
 

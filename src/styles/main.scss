@@ -191,6 +191,7 @@
     @extend .flex;
     position: relative;
     justify-content: space-between;
+    width: 100%;
     padding: 10px 30px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     z-index: 10;
@@ -343,6 +344,10 @@
                     color: $tableColor;
                     font-weight: 600;
                     text-transform: uppercase;
+
+                    .content {
+                        display: flex;
+                    }
                 }
 
                 .tableContent {

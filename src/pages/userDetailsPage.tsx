@@ -6,7 +6,6 @@ import { User } from "../utils/users"
 export const UserDetailsPage = () => {
     let userId = useParams().id
     const [userData, setUserData] = useState<User | null>(null)
-    // console.log(userData)
     useEffect(() => {
         try {
             const storedData = localStorage.getItem('Users');
