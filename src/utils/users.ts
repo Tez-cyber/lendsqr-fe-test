@@ -20,11 +20,13 @@ export interface User {
     guarantorMobile: string,
     guarantorMail: string,
     status: string,
-    organization: string
+    organization: string,
+    id: string
 }
 
 async function fetchUsers(): Promise<User[]> {
-    const response = await fetch('https://6724c7c0c39fedae05b2b071.mockapi.io/lendsqr-fe-test/api/users');
+    const url = 'https://6724c7c0c39fedae05b2b071.mockapi.io/lendsqr-fe-test/api/users'
+    const response = await fetch(url);
     const data = await response.json();
     return data;
 }
