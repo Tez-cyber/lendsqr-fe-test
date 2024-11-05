@@ -4,10 +4,6 @@ import { useNavigate } from "react-router-dom"
 
 export const LoginPage = () => {
     const navigate = useNavigate()
-    // const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    //     event.preventDefault()
-    //     navigate('/dashboard')
-    // }
     return (
         <main className="login">
             {/* =========== Left section with image */}
