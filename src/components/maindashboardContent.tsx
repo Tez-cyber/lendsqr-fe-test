@@ -48,6 +48,7 @@ export function MaindashboardContent() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [users, setUsers] = React.useState<User[]>([])
+  const [displayFilter, setDisplayFilter] = React.useState(false)
   const navigate = useNavigate()
 
   React.useEffect(() => {
@@ -70,59 +71,96 @@ export function MaindashboardContent() {
   };
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 440 }} className='dashTable'>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                  className='tableHead'
-                >
-                  <div className="content">
-                    <p>{column.label}</p>
-                    <div><FilterListIcon /></div>
-                  </div>
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {users
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((user) => {
-                return (
-                  <TableRow hover
-                    onClick={() => {
-                      navigate(`/user-details/${user.id}`)
-                    }}
-                    key={user.fullname}>
-                    <TableCell className='tableContent'>{user.organization}</TableCell>
-                    <TableCell className='tableContent'>{user.fullname}</TableCell>
-                    <TableCell className='tableContent'>{user.email}</TableCell>
-                    <TableCell className='tableContent'>{user.mobile}</TableCell>
-                    <TableCell className='tableContent'>May 15, 2020 10:00 AM</TableCell>
-                    <TableCell className='tableContent'>{user.status}</TableCell>
-                    {/* Add more cells for other properties */}
-                  </TableRow>
+    <div className='tableComponent'>
+      <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+        <TableContainer sx={{ maxHeight: 440 }} className='dashTable'>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                    className='tableHead'
+                  >
+                    <div className="content">
+                      <p>{column.label}</p>
+                      <div onClick={() => setDisplayFilter(!displayFilter)}><FilterListIcon /></div>
+                    </div>
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {users
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((user) => {
+                  return (
+                    <TableRow hover
+                      onClick={() => {
+                        navigate(`/user-details/${user.id}`)
+                      }}
+                      key={user.fullname}>
+                      <TableCell className='tableContent'>{user.organization}</TableCell>
+                      <TableCell className='tableContent'>{user.fullname}</TableCell>
+                      <TableCell className='tableContent'>{user.email}</TableCell>
+                      <TableCell className='tableContent'>{user.mobile}</TableCell>
+                      <TableCell className='tableContent'>May 15, 2020 10:00 AM</TableCell>
+                      <TableCell className='tableContent'>{user.status}</TableCell>
+                      {/* Add more cells for other properties */}
+                    </TableRow>
 
-                );
-              })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={users.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
-    </Paper>
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={users.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
+
+      {
+        displayFilter &&
+        <form action="" className='filterForm'>
+          <select name="Select" id="">
+            <option value="">Lendsqr</option>
+          </select>
+          <div className="">
+            <label htmlFor="">Username</label>
+            <input type="text" placeholder='User' />
+          </div>
+          <div className="">
+            <label htmlFor="">Email</label>
+            <input type="text" placeholder='Email' />
+          </div>
+          <div className="">
+            <label htmlFor="">Date</label>
+            <input type="date" placeholder='Email' />
+          </div>
+          <div className="">
+            <label htmlFor="">Phone Number</label>
+            <input type="text" placeholder='Phone Number' />
+          </div>
+          <div className="">
+            <select name="" id="">
+              <option value="">active</option>
+            </select>
+          </div>
+
+          <div className="">
+            <button className='btn btn_1'>Reset</button>
+            <button className='btn btn_2'>Filter</button>
+          </div>
+        </form>
+      }
+    </div>
   );
 }

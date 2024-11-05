@@ -271,7 +271,7 @@
                             border-radius: 100%;
                         }
 
-                        p{
+                        p {
                             color: $primaryColor;
                             font-weight: bold;
                         }
@@ -336,6 +336,59 @@
 
         &_tableContain {
             width: 100%;
+
+            .tableComponent {
+                position: relative;
+                .filterForm {
+                    position: absolute;
+                    top: 60px;
+                    z-index: 5;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    padding: 20px;
+                    background: #fff;
+                    width: 270px;
+                    margin: 10px;
+                    border-radius: 8px;
+
+                    label {
+                        display: block;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: $tableColor;
+                    }
+
+                    select {
+                        width: 100%;
+                        height: 40px;
+                        margin-bottom: 5px;
+                    }
+
+                    input {
+                        width: 90%;
+                        padding: 10px;
+                        margin-bottom: 20px;
+                    }
+
+                    .btn {
+                        margin-top: 30px;
+                        margin-right: 5px;
+                        padding: 15px 45px;
+                        border-radius: 8px;
+                        border: none;
+                        font-weight: 500;
+                    }
+
+                    .btn_1 {
+                        background: transparent;
+                        border: 1.5px solid $primaryColor;
+                    }
+
+                    .btn_2 {
+                        background: $secondaryColor;
+                        color: #fff;
+                    }
+                }
+            }
 
             .dashTable {
                 padding: 20px;
