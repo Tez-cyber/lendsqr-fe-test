@@ -1,7 +1,28 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { GeneralDetails } from "../components/general_details/generalDetails"
+import { useEffect, useState } from "react"
+import { User } from "../utils/users"
 
 export const UserDetailsPage = () => {
+    let userId = useParams().id
+    const [userData, setUserData] = useState<User | null>(null)
+    // console.log(userData)
+    useEffect(() => {
+        try {
+            const storedData = localStorage.getItem('Users');
+            if (storedData) {
+                const parseData: User[] = JSON.parse(storedData)
+                const user = parseData.find(user => user.id === userId);
+                setUserData(user || null)
+                console.log(userData)
+            }else {
+                console.error('User data not found.');
+            }
+        } catch (err) {
+            console.error('Error fetching user data:', err);
+        }
+    }, [userId])
+
     return (
         <div className="userDetails">
             <div className="userDetails_backLink">
@@ -24,8 +45,8 @@ export const UserDetailsPage = () => {
                     <div className="profile_wrapper">
                         <img src="/icons/profile-img.png" alt="" />
                         <div className="">
-                            <p className="profile_wrapper_name">Grace Effiom</p>
-                            <p className="profile_wrapper_id">LSQFf587g90</p>
+                            <p className="profile_wrapper_name">{userData?.fullname}</p>
+                            <p className="profile_wrapper_id">{userData?.id}</p>
                         </div>
                     </div>
                     <span className="profile_bar"></span>
@@ -38,7 +59,7 @@ export const UserDetailsPage = () => {
                         </div>
                         <span className="profile_bar"></span>
                         <div className="bank_wrapper">
-                            <p className="bank_wrapper_amt">&#x20A6;                200,000.00</p>
+                            <p className="bank_wrapper_amt">&#x20A6;200,000.00</p>
                             <p className="bank_wrapper_details">
                                 9912345678/Providus Bank
                             </p>
@@ -57,7 +78,7 @@ export const UserDetailsPage = () => {
                 </div>
             </div>
             <div className="userDetails_profileDetails">
-                <GeneralDetails />
+                <GeneralDetails userData={userData} />
             </div>
         </div>
     )

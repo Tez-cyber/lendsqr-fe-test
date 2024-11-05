@@ -1,27 +1,32 @@
+import { User } from "../../utils/users"
 import { EducationDetails } from "./educationDetails"
 import { PersonalDetails } from "./personalDetails"
 
-export const GeneralDetails = () => {
+
+interface GeneralDetailsProps {
+    userData: User | null
+}
+export const GeneralDetails = ({ userData }: GeneralDetailsProps) => {
     return (
         <div className="generalDetails">
-            <PersonalDetails />
+            <PersonalDetails userData={userData} />
             <span className="generalDetails_seperator"></span>
-            <EducationDetails />
+            <EducationDetails userData={userData} />
             <span className="generalDetails_seperator"></span>
             <div className="generalDetails_social">
                 <div className="generalDetails_head">Socials</div>
                 <div className="generalDetails_details">
                     <div className="generalDetails_details_info">
                         <p className="generalDetails_details_info_minihead">twitter</p>
-                        <p className="generalDetails_details_info_minidetails">@grace_effiom</p>
+                        <p className="generalDetails_details_info_minidetails">{userData?.twitter}</p>
                     </div>
                     <div className="generalDetails_details_info">
                         <p className="generalDetails_details_info_minihead">facebook</p>
-                        <p className="generalDetails_details_info_minidetails">Grace Effiom</p>
+                        <p className="generalDetails_details_info_minidetails">{userData?.facebook}</p>
                     </div>
                     <div className="generalDetails_details_info">
                         <p className="generalDetails_details_info_minihead">instagram</p>
-                        <p className="generalDetails_details_info_minidetails">@grace_effiom</p>
+                        <p className="generalDetails_details_info_minidetails">{userData?.instagram}</p>
                     </div>
                 </div>
             </div>
@@ -31,19 +36,19 @@ export const GeneralDetails = () => {
                 <div className="generalDetails_details">
                     <div className="generalDetails_details_info">
                         <p className="generalDetails_details_info_minihead">full name</p>
-                        <p className="generalDetails_details_info_minidetails">Debby Ogana</p>
+                        <p className="generalDetails_details_info_minidetails">{userData?.guarantorName}</p>
                     </div>
                     <div className="generalDetails_details_info">
                         <p className="generalDetails_details_info_minihead">phone number</p>
-                        <p className="generalDetails_details_info_minidetails">07060780922</p>
+                        <p className="generalDetails_details_info_minidetails">{userData?.guarantorMobile}</p>
                     </div>
                     <div className="generalDetails_details_info">
                         <p className="generalDetails_details_info_minihead">email address</p>
-                        <p className="generalDetails_details_info_minidetails">debby@gmail.com</p>
+                        <p className="generalDetails_details_info_minidetails">{userData?.guarantorMail}</p>
                     </div>
                     <div className="generalDetails_details_info">
                         <p className="generalDetails_details_info_minihead">relationship</p>
-                        <p className="generalDetails_details_info_minidetails">Sister</p>
+                        <p className="generalDetails_details_info_minidetails">{userData?.guarantorRelationship}</p>
                     </div>
                 </div>
             </div>

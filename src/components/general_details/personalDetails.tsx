@@ -1,12 +1,16 @@
+import { User } from "../../utils/users"
 
-export const PersonalDetails = () => {
+interface PersonalDetailsProps {
+    userData: User | null
+}
+export const PersonalDetails = ({ userData }: PersonalDetailsProps) => {
     return (
         <div className="generalDetails_personal">
             <div className="generalDetails_head">Personal Information</div>
             <div className="generalDetails_details">
                 <div className="generalDetails_details_info">
                     <p className="generalDetails_details_info_minihead">full name</p>
-                    <p className="generalDetails_details_info_minidetails">Grace Effiom</p>
+                    <p className="generalDetails_details_info_minidetails">{userData?.fullname}</p>
                 </div>
                 <div className="generalDetails_details_info">
                     <p className="generalDetails_details_info_minihead">phone number</p>

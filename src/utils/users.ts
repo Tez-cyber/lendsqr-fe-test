@@ -10,6 +10,7 @@ export interface User {
     edLvl: string,
     employmentStatus:string,
     employmentSector: string,
+    employmentDuration: string,
     officeMail: string,
     monthlyIncome: string,
     loanRepay: string,
@@ -19,6 +20,7 @@ export interface User {
     guarantorName: string,
     guarantorMobile: string,
     guarantorMail: string,
+    guarantorRelationship: string,
     status: string,
     organization: string,
     id: string
