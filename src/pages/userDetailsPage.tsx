@@ -26,7 +26,7 @@ export const UserDetailsPage = () => {
         <div className="userDetails">
             <div className="userDetails_backLink">
                 <img src="/icons/back.png" alt="Go back icon" />
-                <Link to="/">
+                <Link to="/dashboard">
                     <p>Back to Users</p>
                 </Link>
             </div>
